@@ -3,17 +3,19 @@ import express from 'express';
 //import {DBKey} from './innerJS/keys.js'
 import userRouter from './routes/user.routes.js';
 import postRouter from './routes/post.routes.js';
+import commentRouter from './routes/comments.router.js';
 import cors from 'cors';
 
 const port_val = 5298;
 
 const app = express();
 
-// app.use(express.json())
+app.use(express.json())
 app.use(cors())
 
 app.use('/api', userRouter)
 app.use('/api', postRouter)
+app.use('/api', commentRouter)
 
 async function startServer() {
     try {

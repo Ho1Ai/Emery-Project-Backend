@@ -26,5 +26,6 @@ create TABLE comments(
     id SERIAL PRIMARY KEY,
     author VARCHAR(255),
     content TEXT,
-    link_id INTEGER
+    target_id BIGINT,
+    FOREIGN KEY (target_id) REFERENCES post(id)
 );
